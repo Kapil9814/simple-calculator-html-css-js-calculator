@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .calculator{
+        background-color: lightblue;
+        padding: 10px;
+        width: 500px;
+        margin-top: 50px;
+        margin-left: 100px;
+    }
+    body{
+        /* display: flex; */
+        justify-content: center;
+        background-color: rgb(175, 104, 241);
+    }
+    #display{
+        width: 92%;
+        height: 60px;
+        border-radius: 10px;
+        font-size: 25px;
+        text-align: right;
+        border: none;
+        margin-left: 20px;
+    }
+    .button{
+        display: grid;
+        /* grid-template-columns:  auto auto auto auto; */
+        grid-template-columns: repeat(4,1fr);
+
+    }
+    button{
+        font-size: 35px;
+        border-radius: 5px;
+        margin-left: 15px;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+        color: rgb(114, 2, 25);
+        background-color: rgb(182, 157, 206);
+        border-radius: 10px;
+        border: none;
+
+    }
+    button:hover{
+        background-color: lightgreen;
+        transform: scale(1.05);
+        transition: background-color 0.50s ease;
+        transition: transform 0.50s ease;
+    }
+</style>
+<body>
+    <div class="calculator">
+        <input type="text" id="display"><br> <br>
+        <div class="button">
+            <button onclick="input_display('1')">1</button>
+            <button onclick="input_display('2')">2</button>
+            <button onclick="input_display('3')">3</button>
+            <button onclick="input_display('4')">4</button>
+            <button onclick="input_display('5')">5</button>
+            <button onclick="input_display('6')">6</button>
+            <button onclick="input_display('7')">7</button>
+            <button onclick="input_display('8')">8</button>
+            <button onclick="input_display('9')">9</button>
+            <button onclick="input_display('0')">0</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="clear_display()">c</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="clalculate_Result()">=</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="input_display('/')">/</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="input_display('+')">+</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="input_display('-')">-</button>
+            <button style="background-color: rgb(253, 176, 176);" onclick="input_display('*')">*</button>
+        </div>
+    </div>
+</body>
+<script>
+    function input_display(value)
+    {
+        document.getElementById('display').value +=value;
+    }
+    function clear_display(value)
+    {
+        document.getElementById('display').value ="";
+    }
+    function clalculate_Result(value)
+    {
+        try
+        {
+            document.getElementById('display').value = eval(document.getElementById("display").value);
+        } 
+        catch
+        {
+            document.getElementById("display").value = "Error"
+        }
+    }
+
+</script>
+</html>
